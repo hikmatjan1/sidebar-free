@@ -1,12 +1,14 @@
 import React, { useRef, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { useColor } from '../../../context/CounterContext';
 import { classNames } from '../../../utils/options';
 import right_icon from '../../../assets/right.svg';
 
 function SidebarMenu(props) {
-    const { user, sections, sidebarOptions } = props;
-    const { sectionItem } = sidebarOptions;
+    const { user, sections, sectionItem } = props;
+    const { darkMode = "#292727" } = sectionItem;
+    const { menuColor, enabled } = useColor();
     const buttonRefs = useRef([]);
     const button1Refs = useRef([]);
     const openedRef = useRef(null);
@@ -53,7 +55,7 @@ function SidebarMenu(props) {
                                             className={`group overflow-hidden`}
                                             style={{
                                                 color: isActive ? (sectionItem?.activeColor || "#FFB620") : (sectionItem?.textColor || "#fff"),
-                                                backgroundColor: sectionItem?.bgColor || "#002361",
+                                                backgroundColor: enabled ? darkMode : (menuColor ? menuColor?.sidebarItemBgColor : (sectionItem?.bgColor || "#002361")),
                                                 borderRadius: sectionItem?.borderRadius || "7px",
                                                 padding: `${sectionItem?.paddingY || "8px"} ${sectionItem?.paddingX || "14px"}`,
                                             }}
@@ -89,7 +91,7 @@ function SidebarMenu(props) {
                                                 title={item.name}
                                                 style={{
                                                     color: open ? (sectionItem?.activeColor || "#FFB620") : (sectionItem?.textColor || "#fff"),
-                                                    backgroundColor: sectionItem?.bgColor || "#002361",
+                                                    backgroundColor: enabled ? darkMode : (menuColor ? menuColor?.sidebarItemBgColor : (sectionItem?.bgColor || "#002361")),
                                                     borderRadius: sectionItem?.borderRadius || "7px",
                                                     padding: `${sectionItem?.paddingY || "8px"} ${sectionItem?.paddingX || "14px"}`
                                                 }}
@@ -142,7 +144,7 @@ function SidebarMenu(props) {
                                                                                 title={elem.name}
                                                                                 style={{
                                                                                     color: isActive ? (sectionItem?.activeColor || "#FFB620") : (sectionItem?.textColor || "#fff"),
-                                                                                    backgroundColor: sectionItem?.bgColor || "#002361",
+                                                                                    backgroundColor: enabled ? darkMode : (menuColor ? menuColor?.sidebarItemBgColor : (sectionItem?.bgColor || "#002361")),
                                                                                     borderRadius: sectionItem?.borderRadius || "7px",
                                                                                     padding: `${sectionItem?.paddingY || "8px"} ${sectionItem?.paddingX || "14px"}`
                                                                                 }}
@@ -185,7 +187,7 @@ function SidebarMenu(props) {
                                                                             title={elem.name}
                                                                             style={{
                                                                                 color: open ? (sectionItem?.activeColor || "#FFB620") : (sectionItem?.textColor || "#fff"),
-                                                                                backgroundColor: sectionItem?.bgColor || "#002361",
+                                                                                backgroundColor: enabled ? darkMode : (menuColor ? menuColor?.sidebarItemBgColor : (sectionItem?.bgColor || "#002361")),
                                                                                 borderRadius: sectionItem?.borderRadius || "7px",
                                                                                 padding: `${sectionItem?.paddingY || "8px"} ${sectionItem?.paddingX || "14px"}`
                                                                             }}
@@ -228,7 +230,7 @@ function SidebarMenu(props) {
                                                                                                 title={element.name}
                                                                                                 style={{
                                                                                                     color: isActive ? (sectionItem?.activeColor || "#FFB620") : (sectionItem?.textColor || "#fff"),
-                                                                                                    backgroundColor: sectionItem?.bgColor || "#002361",
+                                                                                                    backgroundColor: enabled ? darkMode : (menuColor ? menuColor?.sidebarItemBgColor : (sectionItem?.bgColor || "#002361")),
                                                                                                     borderRadius: sectionItem?.borderRadius || "7px",
                                                                                                     padding: `${sectionItem?.paddingY || "8px"} ${sectionItem?.paddingX || "14px"}`
                                                                                                 }}

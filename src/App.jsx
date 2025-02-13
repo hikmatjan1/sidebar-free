@@ -37,6 +37,7 @@ function App(props) {
             }}
             routes={routes} // routes navigation
             sections={sidebar_sections} // sidebar section
+            darkMode="#121212" // working with localstorage, name is darkMode (boolean type)
             sidebarOptions={{
               bgColor: "#171745", // default #012C6E, #171745, #1D2733, #1d2733, #222326, #2B2C41
               bgImage: "", // default
@@ -58,6 +59,7 @@ function App(props) {
               sectionItem: {
                 fontSize: "12px", // default
                 bgColor: "#24246b", // default #002361, #24246b, #2A323E, #1c324d, #2c3140, #41415D
+                darkMode: "#292727",
                 textColor: "#fff",
                 activeColor: "#FFB620",
                 paddingY: "8px", // default
@@ -90,7 +92,6 @@ function App(props) {
               bgColor: "#fff", // default
               textColor: "#000", // default
               height: "50px", // default
-              logoName: "Logo name",
               profileDropdownData: profile_menu,
               profileDropdownHandler: profileDropdownHandler
             }}

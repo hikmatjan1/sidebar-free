@@ -1,16 +1,16 @@
-import { MdSettings } from 'react-icons/md';
+import { SlSettings } from "react-icons/sl";
 import { CgProfile } from "react-icons/cg";
-import { IoExitOutline } from "react-icons/io5";
+import { RxExit } from "react-icons/rx";
 import home_icon from '../../assets/home.svg';
 import analitik_icon from '../../assets/analitik.svg';
 import copy_icon from '../../assets/copy.svg';
 
 export const sidebar_sections = [
-    { id: 1, name: 'Home', icons: { bgColor: "#3005D0", icon: home_icon }, href: "/", dropdown: false, role: ["admin"] },
+    { id: 1, name: 'Home', icons: { bgColor: "#2BC840", icon: home_icon }, href: "/", dropdown: false, role: ["admin"] },
     {
         id: 2, name: 'Pages', icons: { bgColor: "#30bbff", icon: copy_icon }, dropdown: true, role: ["admin"], menu: [
             { id: 3, name: 'About', href: '/about', role: ["admin"] },
-            { id: 4, name: 'services', href: '/services', role: ["admin"] },
+            { id: 4, name: 'Services', href: '/services', role: ["admin"] },
         ]
     },
     {
@@ -27,7 +27,7 @@ export const sidebar_sections = [
 ]
 
 export const profile_menu = [
-    { id: 1, name: 'Your profile', icon: CgProfile, href: '/profile' },
-    { id: 2, name: 'Settings', icon: MdSettings, href: '/settings' },
-    { id: 3, name: 'Exit', icon: IoExitOutline, href: '/login' },
+    { id: 1, name: 'Profile', icon: CgProfile, href: '/profile' },
+    { id: 2, name: 'Account Settings', icon: SlSettings, href: '/settings' },
+    { id: 3, name: 'Exit', icon: RxExit, href: '/login' },
 ]

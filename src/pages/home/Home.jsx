@@ -5,7 +5,7 @@ function Home() {
     return (
         <div>
             {Array.from(Array(70).keys()).map((item, index) => (
-                <h2>{index}</h2>
+                <h2 key={index}>{index}</h2>
             ))}
         </div>
     )

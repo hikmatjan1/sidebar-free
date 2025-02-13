@@ -4,13 +4,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
         inter_regular: ["InterRegular"],
         inter_medium: ["InterMedium"],
-        montserrat_regular: ["MontserratRegular"],
-        montserrat_medium: ["MontserratMedium"],
       },
     },
     screens: {

@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import SidebarLayouts from '../components/sidebarLayouts/SidebarLayouts';
 
 function Sidebar(props) {
-    const { user, routes = [], sections = [], sidebarOptions, navbarOptions } = props;
+    const { user, routes = [], sections = [], sidebarOptions, navbarOptions, darkMode = "#121212" } = props;
 
     // routes
     const menu = routes.map((route, index) => {
@@ -18,8 +18,8 @@ function Sidebar(props) {
     });
 
     return (
-        <div className='sidebar_layout relative font-montserrat_medium'>
-            <SidebarLayouts user={user} sections={sections} sidebarOptions={sidebarOptions} navbarOptions={navbarOptions}>
+        <div className='sidebar_layout relative font-inter_medium'>
+            <SidebarLayouts user={user} sections={sections} sidebarOptions={sidebarOptions} navbarOptions={navbarOptions} darkMode={darkMode}>
                 <Routes>
                     {menu}
                 </Routes>

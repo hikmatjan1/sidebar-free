@@ -4,12 +4,15 @@ import { MdChevronLeft } from 'react-icons/md';
 import SidebarDesktop from './components/SidebarDesktop';
 import Navbar from './components/Navbar';
 import SidebarMobile from './components/SidebarMobile';
+import Drawer from '../Drawer';
+import { ValueProvider } from '../../context/CounterContext';
 
 const SidebarLayouts = (props) => {
-    const { children, user, sidebarOptions, navbarOptions } = props;
+    const { children, user, sidebarOptions, navbarOptions, darkMode } = props;
     const { bgColor = "#012C6E", logoInfo } = sidebarOptions;
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false);
+    const [openDrawerModal, setOpenDrawerModal] = useState(false);
 
     // open sidebar (desktop)
     const openSidebarHandler = useCallback(() => {
@@ -29,13 +32,23 @@ const SidebarLayouts = (props) => {
         setSidebarMobileOpen(false);
     }, [sidebarMobileOpen]);
 
+    // open drawer
+    const openDrawerModalHandler = useCallback(() => {
+        setOpenDrawerModal(true);
+    }, [openDrawerModal]);
+
+    const closeDrawerModalHandler = useCallback(() => {
+        setOpenDrawerModal(false);
+    }, [openDrawerModal]);
+
     return (
-        <>
+        <ValueProvider >
             <div className='w-full text-white relative'>
 
                 {/* for desktop */}
                 <SidebarDesktop
                     user={user}
+                    darkMode={darkMode}
                     openSidebarHandler={openSidebarHandler}
                     sidebarOpen={sidebarOpen}
                     sections={props.sections}
@@ -46,6 +59,7 @@ const SidebarLayouts = (props) => {
                 {sidebarMobileOpen && (
                     <SidebarMobile
                         user={user}
+                        darkMode={darkMode}
                         sections={props.sections}
                         sidebarOptions={sidebarOptions}
                         sidebarMobileOpen={sidebarMobileOpen}
@@ -60,9 +74,12 @@ const SidebarLayouts = (props) => {
                     {/* navbar  */}
                     <Navbar
                         user={user}
+                        darkMode={darkMode}
+                        sidebarOptions={sidebarOptions}
                         navbarOptions={navbarOptions}
                         sidebarOpen={sidebarOpen}
                         openSidebarMobileHandler={openSidebarMobileHandler}
+                        openDrawerModalHandler={openDrawerModalHandler}
                     />
 
                     {/* icon display when sidebar is closed */}
@@ -87,8 +104,15 @@ const SidebarLayouts = (props) => {
                     </main>
                 </div>
 
+                {/* drawer modal */}
+                {openDrawerModal && (
+                    <Drawer
+                        closeModal={closeDrawerModalHandler}
+                        IsOpen={openDrawerModal}
+                    />
+                )}
             </div>
-        </>
+        </ValueProvider>
     )
 }
 

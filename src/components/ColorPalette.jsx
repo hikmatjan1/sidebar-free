@@ -6,7 +6,7 @@ function ColorPalette(props) {
     return (
         <Tooltip content="Switcher" position="top" px="26px">
             <div className='cursor-pointer' onClick={props.openDrawerModalHandler}>
-                <SlSettings size={18} color='gray' className='' />
+                <SlSettings size={18} color='gray' />
             </div>
         </Tooltip>
     )

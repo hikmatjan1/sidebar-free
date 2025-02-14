@@ -112,7 +112,7 @@ function SidebarMenu(props) {
                                                 <div>
                                                     <img src={right_icon} alt="no image"
                                                         className={classNames(
-                                                            open ? 'rotate-90 ' : 'dark:text-dark_text',
+                                                            open ? 'rotate-90 ' : '',
                                                             'transition-all w-[6px]'
                                                         )}
                                                     />
@@ -199,7 +199,7 @@ function SidebarMenu(props) {
                                                                             <div>
                                                                                 <img src={right_icon} alt="no image"
                                                                                     className={classNames(
-                                                                                        open ? 'rotate-90 ' : 'dark:text-dark_text',
+                                                                                        open ? 'rotate-90 ' : '',
                                                                                         'transition-all w-[6px]'
                                                                                     )}
                                                                                 />

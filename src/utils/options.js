@@ -13,6 +13,7 @@ export const sidebarColors = [
     { id: 4, sidebarBgColor: "#1d2733" },
     { id: 5, sidebarBgColor: "#222326" },
     { id: 6, sidebarBgColor: "#2B2C41" },
+    { id: 6, sidebarBgColor: "#006666" },
 ];
 
 export const menuColors = [
@@ -22,6 +23,7 @@ export const menuColors = [
     { id: 4, sidebarItemBgColor: "#1c324d" },
     { id: 5, sidebarItemBgColor: "#2c3140" },
     { id: 6, sidebarItemBgColor: "#41415D" },
+    { id: 6, sidebarItemBgColor: "#338585" },
 ];
 
 export const navbarColors = [

@@ -37,8 +37,8 @@ function Theme() {
             <div className=''>
                 <div className='flex items-center justify-between px-4 py-2'>
                     <div className='flex flex-col'>
-                        <h6 className='font-inter_medium'>Dark Mode</h6>
-                        <span className='text-[13px] font-inter_regular text-gray-500'>Switch theme to dark mode</span>
+                        <h6 className='font-inter_medium text-[13px] lg:text-[15px]'>Dark Mode</h6>
+                        <span className='text-[12px] font-inter_regular text-gray-500'>Switch theme to dark mode</span>
                     </div>
                     {/* switch */}
                     <Switch />

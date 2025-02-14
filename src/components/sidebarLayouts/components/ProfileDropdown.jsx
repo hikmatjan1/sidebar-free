@@ -23,10 +23,9 @@ function ProfileDropdown(props) {
             {({ open }) => (
                 <>
                     <div>
-                        {/* <Tooltip content="Your Profile" position="top" px="30px"> */}
-                        <MenuButton className="flex max-w-xs items-center rounded-full dark:bg-dark pl-1 text-sm" style={{ color: enabled ? "white" : (textColor || "white") }}>
+                        <MenuButton className="flex max-w-xs items-center rounded-full pl-1 text-sm" style={{ color: enabled ? "white" : (textColor || "white") }}>
                             <span className="sr-only">Open user menu</span>
-                            <span className='text-[13px] pr-2 dark:text-dark_text'>
+                            <span className='text-[13px] pr-2'>
                                 {user?.name}
                             </span>
                             <div className='flex items-center gap-4'>
@@ -39,7 +38,6 @@ function ProfileDropdown(props) {
                                 <img src={right} alt="down-icon" className={`transition-all ${open ? '-rotate-90' : 'rotate-90'}`} />
                             </div>
                         </MenuButton>
-                        {/* </Tooltip> */}
                     </div>
                     <Transition
                         as={Fragment}
@@ -53,18 +51,13 @@ function ProfileDropdown(props) {
                         <MenuItems className="absolute right-0 z-50 w-44 origin-top-right top-9 rounded-md py-1 shadow-lg bg-white">
                             {profileDropdownData?.length > 0 && profileDropdownData.map(item => (
                                 <MenuItem key={item.name}>
-                                    {({ active }) => (
-                                        <span
-                                            onClick={event => navigateHandler(event, item)}
-                                            className={classNames(
-                                                active ? 'bg-gray-100' : '',
-                                                'px-3 py-3 text-[13px] text-gray-700 cursor-pointer flex items-center gap-2'
-                                            )}
-                                        >
-                                            <item.icon size={17} />
-                                            {item.name}
-                                        </span>
-                                    )}
+                                    <span
+                                        onClick={event => navigateHandler(event, item)}
+                                        className='px-3 py-3 text-[13px] text-gray-700 cursor-pointer flex items-center gap-2'
+                                    >
+                                        <item.icon size={17} />
+                                        {item.name}
+                                    </span>
                                 </MenuItem>
                             ))}
                         </MenuItems>

@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { MdChevronLeft } from 'react-icons/md';
+import { LuArrowRightToLine } from "react-icons/lu";
 import SidebarDesktop from './components/SidebarDesktop';
 import Navbar from './components/Navbar';
 import SidebarMobile from './components/SidebarMobile';
 import Drawer from '../Drawer';
-import { ValueProvider } from '../../context/CounterContext';
+import { useColor, ValueProvider } from '../../context/CounterContext';
 
 const SidebarLayouts = (props) => {
     const { children, user, sidebarOptions, navbarOptions, darkMode } = props;
@@ -13,12 +13,14 @@ const SidebarLayouts = (props) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false);
     const [openDrawerModal, setOpenDrawerModal] = useState(false);
+    const { enabled, sidebarColor } = useColor();
 
     // open sidebar (desktop)
     const openSidebarHandler = useCallback(() => {
         setSidebarOpen(true);
     }, [sidebarOpen]);
 
+    // close sidebar (desktop)
     const closeSidebarHandler = useCallback(() => {
         setSidebarOpen(false);
     }, [sidebarOpen]);
@@ -28,21 +30,23 @@ const SidebarLayouts = (props) => {
         setSidebarMobileOpen(true);
     }, [sidebarMobileOpen]);
 
+    // close sidebar (mobile)
     const closeSidebarMobileHandler = useCallback(() => {
         setSidebarMobileOpen(false);
     }, [sidebarMobileOpen]);
 
-    // open drawer
+    // open drawer rightbar
     const openDrawerModalHandler = useCallback(() => {
         setOpenDrawerModal(true);
     }, [openDrawerModal]);
 
+    // close drawer rightbar
     const closeDrawerModalHandler = useCallback(() => {
         setOpenDrawerModal(false);
     }, [openDrawerModal]);
 
     return (
-        <ValueProvider >
+        <ValueProvider>
             <div className='w-full text-white relative'>
 
                 {/* for desktop */}
@@ -69,7 +73,6 @@ const SidebarLayouts = (props) => {
                 )}
 
 
-                {/* <div className={`flex flex-1 flex-col h-[100vh] transition-all ${sidebarOpen ? 'pl-0 md:pl-3' : 'md:pl-80'}`}> */}
                 <div className={`flex flex-col transition-all ${sidebarOpen ? 'pl-0 md:pl-3' : 'md:pl-80'}`}>
                     {/* navbar  */}
                     <Navbar
@@ -84,12 +87,14 @@ const SidebarLayouts = (props) => {
 
                     {/* icon display when sidebar is closed */}
                     <div
-                        className={`w-[20px] h-[20px] rounded-md cursor-pointer flex-col items-center justify-center absolute top-[26px] transition-all group ${sidebarOpen ? 'hidden md:flex' : 'hidden'} rotate-180 z-30 left-[3px] rounded-r-[4px]`
-                        }
-                        style={{ boxShadow: "0px 0px 6px 2px #FFB6204D", backgroundColor: bgColor }}
+                        className={`w-[26px] h-[26px] rounded-md cursor-pointer flex-col items-center justify-center absolute top-[12px] transition-all group ${sidebarOpen ? 'hidden md:flex' : 'hidden'} rotate-180 z-30 left-[6px]`}
+                        style={{
+                            boxShadow: "0px 0px 2px 1px #ffffff4D",
+                            backgroundColor: enabled ? darkMode : (sidebarColor ? sidebarColor?.sidebarBgColor : bgColor),
+                        }}
                         onClick={closeSidebarHandler}
                     >
-                        <MdChevronLeft className='group-hover:text-white rotate-[180]' size={20} style={{ color: logoInfo?.chevronLeftColor || "white" }} />
+                        <LuArrowRightToLine className='group-hover:text-white -rotate-180' size={12} style={{ color: logoInfo?.chevronLeftColor || "white" }} />
                     </div>
 
                     {/* children */}

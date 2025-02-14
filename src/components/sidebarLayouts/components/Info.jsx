@@ -7,7 +7,7 @@ function Info({ info, sectionItem }) {
 
     return (
         (!info.hasOwnProperty("visible") || info?.visible) && (
-            <div className='mt-[43px] flex flex-col gap-[41px] mb-[20px]'>
+            <div className={`mt-[43px] flex flex-col gap-[41px] mb-[20px] w-full`}>
                 <div className='pt-[15px] pb-[28px] px-[24px] rounded-[14px] flex flex-col'
                     style={{
                         backgroundColor: enabled ? darkMode : (menuColor ? menuColor?.sidebarItemBgColor : (info?.bgColor ? info.bgColor : "#002361")),
@@ -19,7 +19,7 @@ function Info({ info, sectionItem }) {
                         style={{ backgroundColor: info?.content?.btn?.bgColor || "#fff", color: info?.content?.btn?.textColor || "#012C6E", fontSize: info?.content?.btn?.fontSize || "11px", }}
                         onClick={info?.content?.btn?.viewInfoHandler || null}
                     >
-                        {info?.content?.btn?.name || "Documentation"}
+                        <span>{info?.content?.btn?.name || "Documentation"}</span>
                     </div>
                 </div>
             </div>

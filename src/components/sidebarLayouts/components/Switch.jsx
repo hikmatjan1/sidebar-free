@@ -13,6 +13,8 @@ function Switch() {
 
     // click switch (toggle (change background and text color))
     const changeToggle = event => {
+        if (event.target.checked) document.querySelector('#root').classList.add("dark");
+        else document.querySelector('#root').classList.remove("dark");
         onSwitchHandler(event.target.checked);
     }
 

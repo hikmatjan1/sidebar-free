@@ -1,13 +1,52 @@
 {
-  "name": "sidebar",
-  "private": true,
-  "version": "0.0.0",
+  "name": "sidebar-modern",
+  "private": false,
+  "version": "1.0.0",
+  "description": "A customizable sidebar component for React applications",
+  "main": "dist/my-react-tailwind-package.umd.js",
+  "module": "dist/my-react-tailwind-package.es.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/sidebar.css",
   "type": "module",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:css": "npx tailwindcss -i ./src/index.css -o ./dist/sidebar.css --minify",
     "lint": "eslint .",
     "preview": "vite preview"
+  },
+  "keywords": [
+    "react",
+    "sidebar",
+    "navigation",
+    "ui-component",
+    "menu",
+    "responsive",
+    "dashboard",
+    "tailwindcss",
+    "react-sidebar",
+    "sidebar-pro",
+    "sidebar-modern",
+    "sidebar-pro-component",
+    "dropwdown-menu",
+    "sidebar-menu",
+    "sidebar-multi-menu"
+  ],
+  "author": "Khikmat Turaev",
+  "homepage": "https://github.com/hikmatjan1/sidebar-free",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hikmatjan1/sidebar-free"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

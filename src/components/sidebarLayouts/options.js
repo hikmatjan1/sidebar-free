@@ -6,7 +6,7 @@ import analitik_icon from '../../assets/analitik.svg';
 import copy_icon from '../../assets/copy.svg';
 
 export const sidebar_sections = [
-    { id: 1, name: 'Home', icons: { bgColor: "#2BC840", icon: home_icon }, href: "/", dropdown: false, role: ["admin"] },
+    { id: 1, name: 'Home', icons: { bgColor: "#2BC840", icon: home_icon,  }, href: "/", dropdown: false, role: ["admin"] },
     {
         id: 2, name: 'Pages', icons: { bgColor: "#30bbff", icon: copy_icon }, dropdown: true, role: ["admin"], menu: [
             { id: 3, name: 'About', href: '/about', role: ["admin"] },

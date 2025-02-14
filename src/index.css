@@ -152,7 +152,7 @@ html {
 }
 
 .drawer_visible_content {
-    animation: drawer_animation_open 0.6s alternate;
+    animation: drawer_animation_open .8s alternate;
 }
 
 @keyframes drawer_animation_open {
@@ -171,7 +171,7 @@ html {
     }
 
     100% {
-        width: 350px;
+        width: 375px;
     }
 }
 

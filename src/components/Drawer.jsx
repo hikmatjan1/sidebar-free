@@ -33,17 +33,14 @@ function Drawer(props) {
     }, [IsOpen]);
 
     return (
-        <div className={`absolute inset-0 bg-black/10 z-20 drawer_animation_open text-black`}>
-            <div className={`absolute top-0 right-0 bottom-0 flex transition-all overflow-hidden h-[100vh] bg-white ${IsOpen ? 'w-full xs:w-[350px] drawer_open' : 'w-0 drawer_close'} z-20`} ref={modalRef}>
+        <div className={`absolute inset-0 bg-black/20 z-20 drawer_animation_open text-black`}>
+            <div className={`absolute top-0 right-0 bottom-0 flex transition-all overflow-hidden h-[100vh] bg-white ${IsOpen ? 'w-full xs:w-[375px] drawer_open' : 'w-0 drawer_close'} z-20`} ref={modalRef}>
                 <div className='w-full h-[100vh] overflow-y-scroll drawer_visible_content'>
                     <div className='flex items-center justify-between w-full p-4 py-3'>
-                        <h3>Theme Config</h3>
+                        <h3 className='text-[16px] lg:text-[18px]'>Theme Config</h3>
                         <MdClose size={18} className='cursor-pointer' onClick={closeHandler} />
                     </div>
-
-                    <div className='border-y-[1px] py-[6px] flex justify-center bg-[#FFDDDD]'>
-                        <span className='font-inter_regular text-[14px]'>Theme Colors</span>
-                    </div>
+                    <hr />
 
                     <Theme />
                 </div>

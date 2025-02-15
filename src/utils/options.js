@@ -1,7 +1,3 @@
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image2.jpg';
-import image3 from '../assets/image3.jpg';
-
 export function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
@@ -13,7 +9,7 @@ export const sidebarColors = [
     { id: 4, sidebarBgColor: "#1d2733" },
     { id: 5, sidebarBgColor: "#222326" },
     { id: 6, sidebarBgColor: "#2B2C41" },
-    { id: 6, sidebarBgColor: "#006666" },
+    { id: 7, sidebarBgColor: "#006666" },
 ];
 
 export const menuColors = [
@@ -23,7 +19,7 @@ export const menuColors = [
     { id: 4, sidebarItemBgColor: "#1c324d" },
     { id: 5, sidebarItemBgColor: "#2c3140" },
     { id: 6, sidebarItemBgColor: "#41415D" },
-    { id: 6, sidebarItemBgColor: "#338585" },
+    { id: 7, sidebarItemBgColor: "#338585" },
 ];
 
 export const navbarColors = [
@@ -34,10 +30,11 @@ export const navbarColors = [
     { id: 5, navbarBgColor: "#222326" },
     { id: 6, navbarBgColor: "#2B2C41" },
     { id: 7, navbarBgColor: "#fff" },
+    { id: 8, navbarBgColor: "#006666" },
 ];
 
 export const sidebarBgImages = [
-    { id: 1, sidebarImage: image1 },
-    { id: 2, sidebarImage: image2 },
-    { id: 3, sidebarImage: image3 },
+    { id: 1, sidebarImage: "https://i.postimg.cc/YSF0qR4Q/image1.jpg" },
+    { id: 2, sidebarImage: "https://i.postimg.cc/QNbDb1gh/image2-DMb-Srybq.png" },
+    { id: 3, sidebarImage: "https://i.postimg.cc/SspsX983/image3.jpg" },
 ];

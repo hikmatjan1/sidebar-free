@@ -6,12 +6,7 @@ export default {
   ],
   darkMode: 'class',
   theme: {
-    extend: {
-      fontFamily: {
-        inter_regular: ["InterRegular"],
-        inter_medium: ["InterMedium"],
-      },
-    },
+    extend: {},
     screens: {
       xss: "320px",
       xs: "480px",

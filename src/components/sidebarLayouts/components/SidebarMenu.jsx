@@ -1,9 +1,9 @@
 import React, { useRef, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
+import { GoChevronRight } from "react-icons/go";
 import { useColor } from '../../../context/CounterContext';
 import { classNames } from '../../../utils/options';
-import right_icon from '../../../assets/right.svg';
 
 function SidebarMenu(props) {
     const { user, sections, sectionItem } = props;
@@ -110,12 +110,10 @@ function SidebarMenu(props) {
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <img src={right_icon} alt="no image"
-                                                        className={classNames(
-                                                            open ? 'rotate-90 ' : '',
-                                                            'transition-all w-[6px]'
-                                                        )}
-                                                    />
+                                                    <GoChevronRight size={18} className={classNames(
+                                                        open ? 'rotate-90 ' : '',
+                                                        'transition-all text-[#949DCB]'
+                                                    )} />
                                                 </div>
                                             </DisclosureButton>
                                             <DisclosurePanel>
@@ -197,12 +195,10 @@ function SidebarMenu(props) {
                                                                                 <span className=''>{elem.name}</span>
                                                                             </div>
                                                                             <div>
-                                                                                <img src={right_icon} alt="no image"
-                                                                                    className={classNames(
-                                                                                        open ? 'rotate-90 ' : '',
-                                                                                        'transition-all w-[6px]'
-                                                                                    )}
-                                                                                />
+                                                                                <GoChevronRight size={18} className={classNames(
+                                                                                    open ? 'rotate-90 ' : '',
+                                                                                    'transition-all text-[#949DCB]'
+                                                                                )} />
                                                                             </div>
                                                                         </DisclosureButton>
                                                                     </div>

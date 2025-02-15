@@ -1,35 +1,52 @@
-# sidebar-modern
+# react-infinity-sidebar
 
 ![Sidebar Preview](https://sidebar-modern-free.netlify.app/)
 
-A customizable and responsive sidebar component for React applications, built with Tailwind CSS and Headless UI.
+A fully customizable and responsive sidebar component for React applications, built with TailwindCSS and Headless UI. Easily integrate dynamic navigation menus, dark mode, and various styling options. Designed for dashboards, admin panels, and modern web applications, this component provides a smooth user experience with minimal setup. Supports multiple layouts, collapsible sections, and seamless animations. Works out-of-the-box with TailwindCSS configurations and allows deep customization to match your project’s branding. Enhance your React app’s navigation experience with a professional sidebar solution.
 
 ## Features
 
-✅ Fully responsive sidebar navigation
-✅ Dark mode support
+✅ Fully responsive sidebar navigation, 
+✅ Fully customizable – Easily adjust width, height, and animations.
+✅ Smooth animations – Beautiful transitions when opening and closing.
+✅ Responsive design – Works perfectly on all devices (mobile & desktop).
+✅ Dark & Light mode support – Adapts to different themes effortlessly.
+✅ Two modes – Static or Collapsible (toggle) mode for better UX.
+✅ Seamless TailwindCSS integration – Customize styles easily.
+✅ Navigation-ready – Perfect for adding menus and action buttons.
+✅ Highly Customizable – Easily modify width, height, colors, and animations.
+✅ The navbar section is also included.
+✅ Collapsible Mode – Sidebar toggles on/off with a button.
+✅ Static Mode – Always visible, ideal for dashboards.
 ✅ Customizable styles via props
 ✅ Supports sections, nested menus, and icons
 ✅ Easy integration with Tailwind CSS
+✅ Routes are also built in, you don't have to do it yourself.
+
+🛠 Technologies Used:
+1. ⚡ React.js – For an interactive and dynamic UI.
+1. 🎨 TailwindCSS or Custom CSS – For modern and efficient styling.
 
 ## Installation
 
 ```sh
-npm install sidebar-modern
+npm install react-infinity-sidebar
 ```
 
 or using yarn:
 
 ```sh
-yarn add sidebar-modern
+yarn add react-infinity-sidebar
 ```
 
 ## Usage
 
-1. We write the routes in advance.
+1. We write the routes in advance. Open a separate file and put this in it. We will write all the routes in this file.
+🔴 **Note:** Note: Each of the pages here must be created first.
 
 ```jsx
 import { lazy } from "react";
+import Sidebar, { NotFound } from "react-infinity-sidebar";
 
 import Home from "../pages/home/Home";
 const About = lazy(() => import("../pages/about/About"));
@@ -37,7 +54,6 @@ const Services = lazy(() => import("../pages/services/Services"));
 const Settings = lazy(() => import("../pages/settings/Settings"));
 const Menu1 = lazy(() => import("../pages/menu/Menu1"));
 const Menu2 = lazy(() => import("../pages/menu/Menu2"));
-const NotFound = lazy(() => import("./NotFound"));
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
@@ -52,26 +68,20 @@ const routes = [
 export default routes;
 ```
 
-2. Now let's write the sidebar menus
+1. Now let's write the sidebar menus. dropdown: when true, indicates that there is another menu inside. Open a separate file and put this in it. We will write all the routes in this file.
 
 ```jsx
-import { SlSettings } from "react-icons/sl";
-import { CgProfile } from "react-icons/cg";
-import { RxExit } from "react-icons/rx";
-import home_icon from '/assets/home.svg';
-import analitik_icon from '/assets/analitik.svg';
-import copy_icon from '/assets/copy.svg';
 
 export const sidebar_sections = [
-    { id: 1, name: 'Home', icons: { bgColor: "#2BC840", icon: home_icon }, href: "/", dropdown: false, },
+    { id: 1, name: 'Home', icons: { bgColor: "#2BC840", icon: "https://i.postimg.cc/90NNkmFt/default.png" }, href: "/", dropdown: false, },
     {
-        id: 2, name: 'Pages', icons: { bgColor: "#30bbff", icon: copy_icon }, dropdown: true, menu: [
+        id: 2, name: 'Pages', icons: { bgColor: "#30bbff", icon: "https://i.postimg.cc/FK7bPykq/copy.png" }, dropdown: true, menu: [
             { id: 3, name: 'About', href: '/about' },
             { id: 4, name: 'Services', href: '/services' },
         ]
     },
     {
-        id: 5, name: 'Catalog', icons: { bgColor: "#FFB620", icon: analitik_icon }, dropdown: true, menu: [
+        id: 5, name: 'Catalog', icons: { bgColor: "#FFB620", icon: "https://i.postimg.cc/zXKc7rYW/Vector.png" }, dropdown: true, menu: [
             {
                 id: 6, name: 'Menu', dropdown: true, menu: [
                     { id: 7, name: 'Sub Menu 1', href: '/catalog/menu/submenu1' },
@@ -84,20 +94,85 @@ export const sidebar_sections = [
 ]
 
 export const profile_menu = [
-    { id: 1, name: 'Profile', icon: CgProfile, href: '/profile' },
-    { id: 2, name: 'Account Settings', icon: SlSettings, href: '/settings' },
-    { id: 3, name: 'Exit', icon: RxExit, href: '/login' },
+    { id: 1, name: 'Profile', icon: "https://i.postimg.cc/kXhh7vPJ/people.png", href: '/profile' },
+    { id: 2, name: 'Account Settings', icon: "https://i.postimg.cc/8cNxrpZT/settings.png", href: '/settings' },
+    { id: 3, name: 'Exit', icon: "https://i.postimg.cc/vBLNMRbk/logout-1.png", href: '/login' },
 ]
 ```
 
-Import and use the sidebar in your React project:
+3. Import and use the sidebar in your React project:
+🔴 **Note:** Note: You need to install the react-router-dom package first.
 
 ```jsx
-import Sidebar from "sidebar-modern";
+import { Suspense } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Sidebar, { Loader } from "react-infinity-sidebar";
+import routes from 'the path of this component';
+import { sidebar_sections } from 'the path of this component';
+import { profile_menu } from 'the path of this component';
+
+let sidebarOptions = {
+  bgColor: "#171745", 
+  bgImage: "", 
+  logoInfo: {
+    visibleLogo: true,
+    image: "",
+    width: "38px",
+    height: "38px",
+    borderRadius: "4px",
+    textColor: "#fff",
+    chevronLeftColor: "#fff",
+    logoName: {
+      visible: true,
+      name: "Logo name",
+      fontSize: "14px",
+      info: "Welcome",
+    },
+  },
+  sectionItem: {
+    fontSize: "12px", 
+    bgColor: "#24246b",
+    darkMode: "#292727",
+    textColor: "#fff",
+    activeColor: "#FFB620",
+    paddingY: "8px", 
+    paddingX: "14px",
+    borderRadius: "7px", 
+    exit: {
+      visible: true,
+      name: "Exit",
+      onExitHandler: onExitHandler
+    },
+  },
+  info: {
+    visible: true,
+    bgColor: "#24246b", 
+    content: {
+      top: "Need help?", 
+      bottom: "Check out our documentation", 
+      btn: {
+        bgColor: "white",
+        textColor: "#012C6E",
+        fontSize: "11px", 
+        name: "Documentation",
+        viewInfoHandler: viewInfoHandler
+      }
+    }
+  }
+}
+
+let navbarOptions = {
+  visible: true, 
+  bgColor: "#fff", 
+  textColor: "#000", 
+  height: "50px", 
+  profileDropdownData: profile_menu,
+  profileDropdownHandler: profileDropdownHandler
+}
 
 const App = () => {
 
-      // view info handler
+  // view info handler
   const viewInfoHandler = () => alert("The full documentation is provided at this link.");
 
   // exit handler
@@ -114,71 +189,25 @@ const App = () => {
   }
 
   return (
-    <Sidebar
-        user={{
-          name: "Admin" // user name
-        }}
-        routes={routes} // for routes navigation
-        sections={sidebar_sections} // Sidebar menus
-        darkMode="#121212" // This works via localStorage, when darkMode is enabled it saves to localStorage, so you can use it from there.
-        sidebarOptions={{
-          bgColor: "#171745",
-          bgImage: "",
-          logoInfo: {
-            visibleLogo: true,
-            image: "",
-            width: "38px",
-            height: "38px",
-            borderRadius: "4px",
-            textColor: "#fff",
-            chevronLeftColor: "#fff",
-            logoName: {
-              visible: true,
-              name: "Logo name",
-              fontSize: "14px",
-              info: "Welcome",
-            },
-          },
-          sectionItem: {
-            fontSize: "12px",
-            bgColor: "#24246b",
-            darkMode: "#292727",
-            textColor: "#fff",
-            activeColor: "#FFB620",
-            paddingY: "8px", 
-            paddingX: "14px",
-            borderRadius: "7px", 
-            exit: {
-              visible: true, 
-              name: "Exit",
-              onExitHandler: onExitHandler
-            },
-          },
-          info: {
-            visible: true,
-            bgColor: "#24246b", 
-            content: {
-              top: "Need help?", 
-              bottom: "Check out our documentation",
-              btn: {
-                bgColor: "white", 
-                textColor: "#012C6E",
-                fontSize: "11px", 
-                name: "Documentation", 
-                viewInfoHandler: viewInfoHandler
-              }
-            }
-          }
-        }}
-        navbarOptions={{
-          visible: true,
-          bgColor: "#fff", 
-          textColor: "#000", 
-          height: "50px", 
-          profileDropdownData: profile_menu,
-          profileDropdownHandler: profileDropdownHandler
-        }}
-    />
+<BrowserRouter>
+      <Suspense fallback={
+        <Loader />
+      }>
+        <div className='max-w-[2200px] m-auto'>
+          <Sidebar
+            user={{
+              name: "Admin", // user name
+              image: "", // default
+            }}
+            routes={routes} // routes navigation
+            sections={sidebar_sections} // sidebar section
+            darkMode="#121212" // working with localstorage, name is darkMode (boolean type)
+            sidebarOptions={sidebarOptions}
+            navbarOptions={navbarOptions}
+          />
+        </div>
+      </Suspense>
+    </BrowserRouter>
   );
 };
 
@@ -187,27 +216,46 @@ export default App;
 
 ## Props
 
-| Prop             | Type   | Description                |
-| ---------------- | ------ | -------------------------- |
-| `user`           | Object | User details               |
+| Prop             | Type   | Description                | Default         |
+| ---------------- | ------ | -------------------------- | --------------- |
+| `user`           | Object | User details               | {name: "Admin"} |
 | `routes`         | Array  | Navigation routes          |
 | `sections`       | Array  | Sidebar sections           |
-| `darkMode`       | String | Dark mode background color |
+| `darkMode`       | String | Dark mode background color | #121212         |
 | `sidebarOptions` | Object | Sidebar styling options    |
 | `navbarOptions`  | Object | Navbar settings            |
 
-## License
+## Why Use `react-infinity-sidebar`?
+1. 🚀 Easy to set up
+2. 🎨 Highly customizable
+3. 📱 Works on all devices
+4. 🛠 Minimal setup required
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/your-repo/sidebar-package/issues).
 
 ## Author
 
-Developed by **Your Name**. For inquiries, contact [your.email@example.com](mailto:your.email@example.com).
+Developed by **Khikmat Turaev**. For inquiries, contact [thravshanovich@gmail.com](mailto:thravshanovich@gmail.com).
 
 ## Keywords
 
-React, Sidebar, Navigation, UI Component, Responsive Sidebar, Dashboard, Tailwind CSS, React Sidebar, Headless UI, Dark Mode.
+react, sidebar, react-infinity-sidebar, navigation, ui-component, menu, responsive, dashboard, tailwindcss, react-sidebar, sidebar-component, sidebar-pro, sidebar-modern, sidebar-pro-component, sidebar-navigation, collapsible-sidebar, dropwdown-menu, sidebar-menu, sidebar-multi-menu, dynamic-sidebar, animated-sidebar, react-sidebar-component, sidebar-layout, admin-sidebar, custom-sidebar, dark-mode-sidebar, tailwind-sidebar, multi-level-sidebar, mobile-friendly-sidebar, sidebar-ui, sidebar-panel, modern-sidebar, sidebar-toggle, sidebar-with-navbar, react-navigation-sidebar", "LuxeSidebar", "react-pro-sidebar", "ProSidebarX", "PrimeSidebar", "InfinitySidebar", "UltraSidebar", "FlexiSidebar", "SideMaster", "EasySidebar", "ReactSidePro", "SmoothSidebar", "MegaSidebar"
+
+## Development
+
+To contribute or make changes, clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/hikmatjan1/sidebar-free.git
+cd sidebar-free
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## License
+
+React Select Custom Component is open-source and available under the MIT License.

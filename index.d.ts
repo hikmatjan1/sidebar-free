@@ -1,4 +1,6 @@
 declare module "sidebar-modern" {
+    import React from "react";
+
     export interface SidebarUser {
         name: string;
     }
@@ -77,4 +79,16 @@ declare module "sidebar-modern" {
 
     export function Sidebar(props: SidebarProps): JSX.Element;
     export default Sidebar;
+
+    export interface LoaderProps {
+        className?: string;
+    }
+
+    export const Loader: React.FC<LoaderProps>;
+
+    export interface NotFoundProps {
+        className?: string;
+    }
+
+    export const NotFound: React.FC<NotFoundProps>;
 }

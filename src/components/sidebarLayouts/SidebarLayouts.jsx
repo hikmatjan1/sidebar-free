@@ -10,10 +10,10 @@ import { useColor, ValueProvider } from '../../context/CounterContext';
 const SidebarLayouts = (props) => {
     const { children, user, sidebarOptions, navbarOptions, darkMode } = props;
     const { bgColor = "#012C6E", logoInfo } = sidebarOptions;
+    const { enabled, sidebarColor } = useColor();
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false);
     const [openDrawerModal, setOpenDrawerModal] = useState(false);
-    const { enabled, sidebarColor } = useColor();
 
     // open sidebar (desktop)
     const openSidebarHandler = useCallback(() => {
@@ -90,7 +90,7 @@ const SidebarLayouts = (props) => {
                         className={`w-[26px] h-[26px] rounded-md cursor-pointer flex-col items-center justify-center absolute top-[12px] transition-all group ${sidebarOpen ? 'hidden md:flex' : 'hidden'} rotate-180 z-30 left-[6px]`}
                         style={{
                             boxShadow: "0px 0px 2px 1px #ffffff4D",
-                            backgroundColor: enabled ? darkMode : (sidebarColor ? sidebarColor?.sidebarBgColor : bgColor),
+                            backgroundColor: enabled ? darkMode : (localStorage.getItem("sidebar_color") ? JSON.parse(localStorage.getItem("sidebar_color"))?.sidebarBgColor : bgColor),
                         }}
                         onClick={closeSidebarHandler}
                     >

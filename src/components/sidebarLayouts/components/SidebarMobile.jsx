@@ -5,7 +5,6 @@ import { useColor } from '../../../context/CounterContext';
 import Info from './Info';
 import Exit from './Exit';
 import Logo from './Logo';
-import bg_grid from '../../../assets/bg-grid.png';
 
 function SidebarMobile(props) {
     const { user, sidebarOptions, sidebarMobileOpen, darkMode } = props;
@@ -49,8 +48,8 @@ function SidebarMobile(props) {
                         // backgroundImage: `url(${sidebarImage ? sidebarImage?.sidebarImage : (bgImage || bg_grid)})`,
                         backgroundColor: enabled ? darkMode : (sidebarColor ? sidebarColor?.sidebarBgColor : bgColor)
                     }}>
-                    <img src={sidebarImage ? sidebarImage?.sidebarImage : (bgImage || bg_grid)} alt="sidebar image" className='absolute inset-0 w-full h-full' />
-                    <div className='absolute inset-0 bg-black/10'>
+                    <img src={sidebarImage ? sidebarImage?.sidebarImage : (bgImage || "https://i.postimg.cc/jSrkFdHK/bg-grid.png")} alt="sidebar image" className='absolute inset-0 w-full h-full' />
+                    <div className={`absolute inset-0 ${sidebarImage ? 'bg-black/10' : ''} `}>
                         <div className={`h-full flex-col text-white overflow-y-auto sidebar_layout_desktop`}>
                             <div className={`py-[24px] flex items-center justify-between pl-[20px] pr-[17px]`}>
                                 <Logo logoInfo={logoInfo} />

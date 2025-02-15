@@ -4,8 +4,7 @@ import Loader from './components/Loader';
 import Sidebar from './navigation/Sidebar';
 
 import routes from './navigation/routes';
-import { sidebar_sections } from './components/sidebarLayouts/options';
-import { profile_menu } from './components/sidebarLayouts/options';
+import { sidebar_sections, profile_menu } from './components/sidebarLayouts/options';
 
 function App(props) {
 
@@ -33,7 +32,8 @@ function App(props) {
         <div className='max-w-[2200px] m-auto'>
           <Sidebar
             user={{
-              name: "Admin" // user name
+              name: "Admin", // user name
+              image: "", // default
             }}
             routes={routes} // routes navigation
             sections={sidebar_sections} // sidebar section

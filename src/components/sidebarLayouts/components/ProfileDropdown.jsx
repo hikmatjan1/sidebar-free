@@ -1,11 +1,8 @@
 import React, { Fragment, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
-import { classNames } from '../../../utils/options';
+import { GoChevronRight } from "react-icons/go";
 import { useColor } from '../../../context/CounterContext';
-import Avatar from '../../../assets/Avatar.png';
-import right from '../../../assets/right.svg';
-// import Tooltip from '../../Tooltip';
 
 function ProfileDropdown(props) {
     const { user, textColor, profileDropdownData } = props;
@@ -28,14 +25,14 @@ function ProfileDropdown(props) {
                             <span className='text-[13px] pr-2'>
                                 {user?.name}
                             </span>
-                            <div className='flex items-center gap-4'>
+                            <div className='flex items-center gap-3'>
                                 <img
                                     className="h-8 w-8 rounded-full bg-white"
-                                    src={Avatar}
+                                    src={user?.image || "https://i.postimg.cc/T1JW294t/Avatar.png"}
                                     alt="Avatar"
                                     style={{ boxShadow: "rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em" }}
                                 />
-                                <img src={right} alt="down-icon" className={`transition-all ${open ? '-rotate-90' : 'rotate-90'}`} />
+                                <GoChevronRight color='gray' size={17} className={`transition-all ${open ? '-rotate-90' : 'rotate-90'}`} />
                             </div>
                         </MenuButton>
                     </div>
@@ -55,7 +52,7 @@ function ProfileDropdown(props) {
                                         onClick={event => navigateHandler(event, item)}
                                         className='px-3 py-3 text-[13px] text-gray-700 cursor-pointer flex items-center gap-2'
                                     >
-                                        <item.icon size={17} />
+                                        <img src={item.icon} alt="image icon" className='w-[18px]' />
                                         {item.name}
                                     </span>
                                 </MenuItem>

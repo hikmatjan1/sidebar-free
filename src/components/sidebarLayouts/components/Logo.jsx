@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/logo.png';
 
 function Logo({ logoInfo }) {
     return (
@@ -8,7 +7,7 @@ function Logo({ logoInfo }) {
             <div className='flex items-center gap-[8px] cursor-pointer w-full'>
                 {logoInfo?.visibleLogo && (
                     <img
-                        src={logoInfo?.image || logo}
+                        src={logoInfo?.image || "https://i.postimg.cc/m2rrFBzL/logo.png"}
                         alt="logo"
                         style={{ width: logoInfo?.width || "38px", height: logoInfo?.height || "38px", borderRadius: logoInfo?.borderRadius || "4px" }}
                     />

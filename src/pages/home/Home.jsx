@@ -20,7 +20,6 @@ function Home() {
                     <li>Collapsible Mode – Sidebar toggles on/off with a button.</li>
                     <li>Static Mode – Always visible, ideal for dashboards.</li>
                     <li>Multi-Level Navigation – Supports nested menus for better organization.</li>
-                    <li>Multi-Level Navigation – Supports nested menus for better organization.</li>
                 </ul>
                 <br />
 

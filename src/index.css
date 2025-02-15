@@ -2,21 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* inter */
-@font-face {
-    font-family: InterRegular;
-    src: url("./assets/fonts/Inter-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: InterMedium;
-    src: url("./assets/fonts/Inter-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -24,6 +9,16 @@
 
 html {
     scroll-behavior: smooth;
+}
+
+.font-inter_medium {
+    font-family: 'Inter', serif;
+    font-weight: 500;
+}
+
+.font-inter_regular {
+    font-family: 'Inter', serif;
+    font-weight: 400;
 }
 
 ::-webkit-scrollbar {

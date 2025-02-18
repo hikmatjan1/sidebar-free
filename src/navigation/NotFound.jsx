@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function NotFound() {
     return (
@@ -15,10 +15,9 @@ function NotFound() {
                 >Page not found</h1>
                 <p className="mt-4 text-base text-gray-500 sm:mt-6">Sorry, we couldn’t find the page you’re looking for.</p>
                 <div className="mt-10 flex justify-center">
-                    {/* <Link to="/" className="text-sm font-semibold leading-7 text-black"> */}
-                    <div className="text-sm font-semibold leading-7 text-black">
+                    <Link to="/" className="text-sm font-semibold leading-7 text-black">
                         <span aria-hidden="true">&larr;</span> Go to home
-                    </div>
+                    </Link>
                 </div>
             </div>
         </main>

@@ -25,5 +25,3 @@ function Sidebar(props) {
 }
 
 export default Sidebar;
-
-// 📌 Routes faqat `App.jsx` ichida bo‘lishi kerak 

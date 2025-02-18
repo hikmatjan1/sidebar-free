@@ -43,6 +43,12 @@ or using yarn:
 yarn add react-infinity-sidebar
 ```
 
+## Note
+1. [Important]: Installing react-router-dom is mandatory; you only provide the routes, and it handles everything else automatically.
+2. [Important]: The Sidebar component must be wrapped with a SidebarProvider component, otherwise it will not work.
+3. Installing Suspense is optional, if you install it, you can get the Loader from react-infinity-sidebar, it's ready-made.
+4. You can also use the 404 page from react-infinity-sidebar, it's ready-made.
+
 
 ## Usage
 
@@ -51,26 +57,25 @@ yarn add react-infinity-sidebar
 ```jsx
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'; // Installation is mandatory.
 import { SidebarProvider, Loader } from 'react-infinity-sidebar';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <SidebarProvider>
-        <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}>
+        <SidebarProvider>
           <App />
-        </Suspense>
-      </SidebarProvider>
+        </SidebarProvider>
+      </Suspense>
     </BrowserRouter>
   </StrictMode>,
 )
 
 ```
 
-1. We write the routes in advance. Open a separate file and put this in it. We will write all the routes in this file.
-🔴 **Note:** Note: Each of the pages here must be created first.
+2. We write the routes in advance. Open a separate file and put this in it. We will write all the routes in this file. 🔴 **Note:** Note: Each of the pages here must be created first.
 
 ```jsx
 import { lazy } from "react";
@@ -128,8 +133,7 @@ export const profile_menu = [
 ]
 ```
 
-4. Import and use the sidebar in your React project:
-🔴 **Note:** Note: You need to install the react-router-dom package first.
+4. Import and use the sidebar in your React project: 🔴 **Note:** Note: You need to install the react-router-dom package first.
 
 ```jsx
 import { Suspense } from 'react';
@@ -285,3 +289,8 @@ npm run dev
 ## License
 
 React Select Custom Component is open-source and available under the MIT License.
+
+
+## Fixes
+1. There is an error when working with versions 1.0.0 to 1.0.9, I am working on this bug. I apologize for the inconvenience. 16.02.2025
+2. You can use it freely starting from version 1.0.10. 18.02.2025

@@ -1,5 +1,5 @@
 import React, { Fragment, memo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react';
 import { GoChevronRight } from "react-icons/go";
 import { useColor } from '../../../context/CounterContext';
@@ -48,13 +48,14 @@ function ProfileDropdown(props) {
                         <MenuItems className="absolute right-0 z-50 w-44 origin-top-right top-9 rounded-md py-1 shadow-lg bg-white">
                             {profileDropdownData?.length > 0 && profileDropdownData.map(item => (
                                 <MenuItem key={item.name}>
-                                    <span
+                                    <Link
+                                        to={item.href}
                                         onClick={event => navigateHandler(event, item)}
                                         className='px-3 py-3 text-[13px] text-gray-700 cursor-pointer flex items-center gap-2'
                                     >
                                         <img src={item.icon} alt="image icon" className='w-[18px]' />
                                         {item.name}
-                                    </span>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </MenuItems>

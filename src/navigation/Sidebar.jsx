@@ -1,31 +1,29 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
 import SidebarLayouts from '../components/sidebarLayouts/SidebarLayouts';
+import { getAllRoutes } from '../components/getAllRoutes';
 
 function Sidebar(props) {
     const { user, routes = [], sections = [], sidebarOptions, navbarOptions, darkMode = "#121212" } = props;
-
-    // routes
-    const menu = routes.map((route, index) => {
-        return route.component ? (
-            <Route
-                key={index}
-                path={route.path}
-                name={route.name}
-                element={<route.component />}
-            />
-        ) : null;
-    });
 
     return (
         <div className='sidebar_layout relative font-inter_medium'>
             <SidebarLayouts user={user} sections={sections} sidebarOptions={sidebarOptions} navbarOptions={navbarOptions} darkMode={darkMode}>
                 <Routes>
-                    {menu}
+                    {getAllRoutes(routes)}
                 </Routes>
             </SidebarLayouts>
+            {/* {user.token ? (
+        ) : (
+            <Routes>
+                {privateRoutesMenu}
+                <Route path='*' element={<Navigate to="/login" replace />} />
+            </Routes>
+        )} */}
         </div>
     )
 }
 
 export default Sidebar;
+
+// 📌 Routes faqat `App.jsx` ichida bo‘lishi kerak 

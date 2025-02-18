@@ -29,7 +29,7 @@ function Theme() {
 
     // delete color
     const deleteItemHandler = () => {
-        deleteColor(null);
+        deleteColor();
     };
 
     return (

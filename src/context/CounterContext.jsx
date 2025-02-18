@@ -1,48 +1,44 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+// import { useLocation } from "react-router-dom";
 
 // 1️⃣ create Context 
-const Context = createContext({
-    color: localStorage.getItem("drawer_selected_colors") ? JSON.parse(localStorage.getItem("drawer_selected_colors")) : null,
-    updateColor: () => { },
-    deleteColor: () => { },
-    enabled: localStorage.getItem("darkMode") ? JSON.parse(localStorage.getItem("darkMode")) : false,
-    onSwitchHandler: () => { },
-
-    sidebarColor: localStorage.getItem("sidebar_color") ? JSON.parse(localStorage.getItem("sidebar_color")) : null,
-    setColorSidebarHandler: () => { },
-    menuColor: localStorage.getItem("menu_color") ? JSON.parse(localStorage.getItem("menu_color")) : null,
-    setColorMenuHandler: () => { },
-    navbarColor: localStorage.getItem("navbar_color") ? JSON.parse(localStorage.getItem("navbar_color")) : null,
-    setColorNavbarHandler: () => { },
-    sidebarImage: localStorage.getItem("sidebar_image") ? JSON.parse(localStorage.getItem("sidebar_image")) : null,
-    setSidebarImageHandler: () => { }
-});
+const Context = createContext(null);
 
 // 2️⃣ create Context Provider component
-export const ValueProvider = ({ children }) => {
-    const [color, setColor] = useState(localStorage.getItem("drawer_selected_colors") ? JSON.parse(localStorage.getItem("drawer_selected_colors")) : null);
-    const [sidebarColor, setSidebarColor] = useState(localStorage.getItem("sidebar_color") ? JSON.parse(localStorage.getItem("sidebar_color")) : null);
-    const [menuColor, setMenuColor] = useState(localStorage.getItem("menu_color") ? JSON.parse(localStorage.getItem("menu_color")) : null);
-    const [navbarColor, setNavbarColor] = useState(localStorage.getItem("navbar_color") ? JSON.parse(localStorage.getItem("navbar_color")) : null);
-    const [sidebarImage, setSidebarImage] = useState(localStorage.getItem("sidebar_image") ? JSON.parse(localStorage.getItem("sidebar_image")) : null);
-    const [enabled, setEnabled] = useState(localStorage.getItem("darkMode") ? JSON.parse(localStorage.getItem("darkMode")) : false);
+export const SidebarProvider = ({ children }) => {
+    const [sidebarColor, setSidebarColor] = useState(null);
+    const [menuColor, setMenuColor] = useState(null);
+    const [navbarColor, setNavbarColor] = useState(null);
+    const [sidebarImage, setSidebarImage] = useState(null);
+    const [enabled, setEnabled] = useState(false);
 
-    // update
-    const updateColor = (newValue) => {
-        localStorage.setItem("drawer_selected_colors", newValue);
-        setColor(JSON.parse(newValue));
-    };
+    // ✅ Retrieving data from localStorage via `useEffect`
+    useEffect(() => {
+        const safeParse = (key) => {
+            try {
+                return JSON.parse(localStorage.getItem(key));
+            } catch {
+                return localStorage.getItem(key);
+            }
+        };
 
-    // delete
-    const deleteColor = (newValue) => {
+        setSidebarColor(safeParse("sidebar_color") || null);
+        setMenuColor(safeParse("menu_color") || null);
+        setNavbarColor(safeParse("navbar_color") || null);
+        setSidebarImage(safeParse("sidebar_image") || null);
+        setEnabled(safeParse("darkMode") || false);
+    }, []);
+
+    // delete all local storage
+    const deleteColor = () => {
         localStorage.removeItem("sidebar_color");
         localStorage.removeItem("menu_color");
         localStorage.removeItem("navbar_color");
         localStorage.removeItem("sidebar_image");
-        setSidebarColor(newValue);
-        setMenuColor(newValue);
-        setNavbarColor(newValue);
-        setSidebarImage(newValue);
+        setSidebarColor(null);
+        setMenuColor(null);
+        setNavbarColor(null);
+        setSidebarImage(null);
     };
 
     // switch on/off
@@ -73,7 +69,7 @@ export const ValueProvider = ({ children }) => {
     };
 
     return (
-        <Context.Provider value={{ color, sidebarColor, menuColor, navbarColor, sidebarImage, updateColor, deleteColor, enabled, onSwitchHandler, setColorSidebarHandler, setColorMenuHandler, setColorNavbarHandler, setSidebarImageHandler }}>
+        <Context.Provider value={{ sidebarColor, menuColor, navbarColor, sidebarImage, deleteColor, enabled, onSwitchHandler, setColorSidebarHandler, setColorMenuHandler, setColorNavbarHandler, setSidebarImageHandler }}>
             {children}
         </Context.Provider>
     );
@@ -82,6 +78,9 @@ export const ValueProvider = ({ children }) => {
 // 3️⃣ create Custom hook 
 export const useColor = () => {
     const context = useContext(Context);
-    if (!context) throw new Error("useCounter must be used within a CounterProvider");
+    if (context === null || context === undefined) {
+        // console.error("❌ Error: useColor used but not wrapped with SidebarProvider!");
+        throw new Error("useColor must be used within a SidebarProvider");
+    }
     return context;
 };

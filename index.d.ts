@@ -1,5 +1,5 @@
-declare module "sidebar-modern" {
-    import React from "react";
+declare module "react-infinity-sidebar" {
+    import React, { ReactNode } from "react";
 
     export interface SidebarUser {
         name: string;
@@ -91,4 +91,6 @@ declare module "sidebar-modern" {
     }
 
     export const NotFound: React.FC<NotFoundProps>;
+
+    export const SidebarProvider: ({ children }: { children: ReactNode }) => JSX.Element;
 }

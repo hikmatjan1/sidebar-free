@@ -1,31 +1,35 @@
 # react-infinity-sidebar
 
-![Sidebar Preview](https://sidebar-modern-free.netlify.app/)
+# Example
+
+Click here to view. [Sidebar Preview](https://sidebar-modern-free.netlify.app/)
 
 A fully customizable and responsive sidebar component for React applications, built with TailwindCSS and Headless UI. Easily integrate dynamic navigation menus, dark mode, and various styling options. Designed for dashboards, admin panels, and modern web applications, this component provides a smooth user experience with minimal setup. Supports multiple layouts, collapsible sections, and seamless animations. Works out-of-the-box with TailwindCSS configurations and allows deep customization to match your project’s branding. Enhance your React app’s navigation experience with a professional sidebar solution.
 
+
 ## Features
 
-✅ Fully responsive sidebar navigation, 
-✅ Fully customizable – Easily adjust width, height, and animations.
-✅ Smooth animations – Beautiful transitions when opening and closing.
-✅ Responsive design – Works perfectly on all devices (mobile & desktop).
-✅ Dark & Light mode support – Adapts to different themes effortlessly.
-✅ Two modes – Static or Collapsible (toggle) mode for better UX.
-✅ Seamless TailwindCSS integration – Customize styles easily.
-✅ Navigation-ready – Perfect for adding menus and action buttons.
-✅ Highly Customizable – Easily modify width, height, colors, and animations.
-✅ The navbar section is also included.
-✅ Collapsible Mode – Sidebar toggles on/off with a button.
-✅ Static Mode – Always visible, ideal for dashboards.
-✅ Customizable styles via props
-✅ Supports sections, nested menus, and icons
-✅ Easy integration with Tailwind CSS
-✅ Routes are also built in, you don't have to do it yourself.
+1.  ✅ Fully responsive sidebar navigation, 
+2.  ✅ Fully customizable – Easily adjust width, height, and animations.
+3.  ✅ Smooth animations – Beautiful transitions when opening and closing.
+4.  ✅ Responsive design – Works perfectly on all devices (mobile & desktop).
+5.  ✅ Dark & Light mode support – Adapts to different themes effortlessly.
+6.  ✅ Two modes – Static or Collapsible (toggle) mode for better UX.
+7.  ✅ Seamless TailwindCSS integration – Customize styles easily.
+8.  ✅ Navigation-ready – Perfect for adding menus and action buttons.
+9.  ✅ Highly Customizable – Easily modify width, height, colors, and animations.
+10. ✅ The navbar section is also included.
+11. ✅ Collapsible Mode – Sidebar toggles on/off with a button.
+12. ✅ Static Mode – Always visible, ideal for dashboards.
+13. ✅ Customizable styles via props
+14. ✅ Supports sections, nested menus, and icons
+15. ✅ Easy integration with Tailwind CSS
+16. ✅ Routes are also built in, you don't have to do it yourself.
 
 🛠 Technologies Used:
 1. ⚡ React.js – For an interactive and dynamic UI.
 1. 🎨 TailwindCSS or Custom CSS – For modern and efficient styling.
+
 
 ## Installation
 
@@ -39,7 +43,31 @@ or using yarn:
 yarn add react-infinity-sidebar
 ```
 
+
 ## Usage
+
+1. SidebarProvider needs to be wrapped generically as a Provider (important)
+
+```jsx
+import { StrictMode, Suspense } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { SidebarProvider, Loader } from 'react-infinity-sidebar';
+import App from './App.jsx';
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+      <SidebarProvider>
+        <Suspense fallback={<Loader />}>
+          <App />
+        </Suspense>
+      </SidebarProvider>
+    </BrowserRouter>
+  </StrictMode>,
+)
+
+```
 
 1. We write the routes in advance. Open a separate file and put this in it. We will write all the routes in this file.
 🔴 **Note:** Note: Each of the pages here must be created first.
@@ -68,7 +96,7 @@ const routes = [
 export default routes;
 ```
 
-1. Now let's write the sidebar menus. dropdown: when true, indicates that there is another menu inside. Open a separate file and put this in it. We will write all the routes in this file.
+3. Now let's write the sidebar menus. dropdown: when true, indicates that there is another menu inside. Open a separate file and put this in it. We will write all the routes in this file.
 
 ```jsx
 
@@ -100,7 +128,7 @@ export const profile_menu = [
 ]
 ```
 
-3. Import and use the sidebar in your React project:
+4. Import and use the sidebar in your React project:
 🔴 **Note:** Note: You need to install the react-router-dom package first.
 
 ```jsx
@@ -110,6 +138,8 @@ import Sidebar, { Loader } from "react-infinity-sidebar";
 import routes from 'the path of this component';
 import { sidebar_sections } from 'the path of this component';
 import { profile_menu } from 'the path of this component';
+
+import "react-infinity-sidebar/dist/sidebar.css"; // import CSS file (important)
 
 let sidebarOptions = {
   bgColor: "#171745", 
@@ -189,25 +219,19 @@ const App = () => {
   }
 
   return (
-<BrowserRouter>
-      <Suspense fallback={
-        <Loader />
-      }>
-        <div className='max-w-[2200px] m-auto'>
-          <Sidebar
-            user={{
-              name: "Admin", // user name
-              image: "", // default
-            }}
-            routes={routes} // routes navigation
-            sections={sidebar_sections} // sidebar section
-            darkMode="#121212" // working with localstorage, name is darkMode (boolean type)
-            sidebarOptions={sidebarOptions}
-            navbarOptions={navbarOptions}
-          />
-        </div>
-      </Suspense>
-    </BrowserRouter>
+    <div className='max-w-[2200px] m-auto'>
+      <Sidebar
+        user={{
+          name: "Admin", // user name
+          image: "", // default
+        }}
+        routes={routes} // routes navigation
+        sections={sidebar_sections} // sidebar section
+        darkMode="#121212" // working with localstorage, name is darkMode (boolean type)
+        sidebarOptions={sidebarOptions}
+        navbarOptions={navbarOptions}
+      />
+    </div>
   );
 };
 
@@ -236,9 +260,11 @@ export default App;
 
 Developed by **Khikmat Turaev**. For inquiries, contact [thravshanovich@gmail.com](mailto:thravshanovich@gmail.com).
 
+
 ## Keywords
 
 react, sidebar, react-infinity-sidebar, navigation, ui-component, menu, responsive, dashboard, tailwindcss, react-sidebar, sidebar-component, sidebar-pro, sidebar-modern, sidebar-pro-component, sidebar-navigation, collapsible-sidebar, dropwdown-menu, sidebar-menu, sidebar-multi-menu, dynamic-sidebar, animated-sidebar, react-sidebar-component, sidebar-layout, admin-sidebar, custom-sidebar, dark-mode-sidebar, tailwind-sidebar, multi-level-sidebar, mobile-friendly-sidebar, sidebar-ui, sidebar-panel, modern-sidebar, sidebar-toggle, sidebar-with-navbar, react-navigation-sidebar", "LuxeSidebar", "react-pro-sidebar", "ProSidebarX", "PrimeSidebar", "InfinitySidebar", "UltraSidebar", "FlexiSidebar", "SideMaster", "EasySidebar", "ReactSidePro", "SmoothSidebar", "MegaSidebar"
+
 
 ## Development
 

@@ -9,14 +9,15 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
       name: 'MyReactTailwindPackage',
-      fileName: (format) => `my-react-tailwind-package.${format}.js`,
+      fileName: (format) => `my-react-sidebar-tailwind-package.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'], // React va ReactDOM tashqi paketlar
+      external: ['react', 'react-dom', 'react-router-dom'], // React va ReactDOM tashqi paketlar
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          'react-router-dom': 'ReactRouterDOM'
         },
       },
     },

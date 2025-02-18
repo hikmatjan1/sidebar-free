@@ -7,7 +7,7 @@ import Exit from './Exit';
 import Logo from './Logo';
 
 function SidebarMobile(props) {
-    const { user, sidebarOptions, sidebarMobileOpen, darkMode } = props;
+    const { sidebarOptions, sidebarMobileOpen, darkMode } = props;
     const { bgColor = "#012C6E", bgImage, sectionItem, info, logoInfo } = sidebarOptions;
     const { sidebarColor, enabled, sidebarImage } = useColor();
     const [IsOpen, setIsOpen] = useState(sidebarMobileOpen);
@@ -68,7 +68,6 @@ function SidebarMobile(props) {
                                 <div>
                                     {/* sidebar menu */}
                                     <SidebarMenu
-                                        user={user}
                                         sections={props.sections}
                                         closeSidebarMobileHandler={closeHandler}
                                         sectionItem={sectionItem}

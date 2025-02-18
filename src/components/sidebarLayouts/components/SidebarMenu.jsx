@@ -6,7 +6,7 @@ import { useColor } from '../../../context/CounterContext';
 import { classNames } from '../../../utils/options';
 
 function SidebarMenu(props) {
-    const { user, sections, sectionItem } = props;
+    const { sections, sectionItem } = props;
     const { darkMode = "#292727" } = sectionItem;
     const { menuColor, enabled } = useColor();
     const buttonRefs = useRef([]);
@@ -49,7 +49,7 @@ function SidebarMenu(props) {
                     <div key={item.id}>
                         {!item.dropdown ? (
                             <div className={`${i !== navigation?.length - 1 && 'pb-[10px]'}`}>
-                                <NavLink end to={item.href} onClick={props.closeSidebarMobileHandler} className="">
+                                <NavLink to={item.href} end onClick={props.closeSidebarMobileHandler} className="">
                                     {({ isActive }) => (
                                         <div
                                             className={`group overflow-hidden`}
@@ -121,7 +121,7 @@ function SidebarMenu(props) {
                                                     !elem.dropdown ? (
                                                         <div key={elem.id} className={`${idx !== item.menu?.length - 1 && 'pb-[10px]'} ${idx === 0 && 'pt-[10px]'}`}>
                                                             <div className='w-full'>
-                                                                <NavLink key={elem.id} end to={elem.href} onClick={props.closeSidebarMobileHandler} className="flex items-center relative">
+                                                                <NavLink to={elem.href} end onClick={props.closeSidebarMobileHandler} className="flex items-center relative">
                                                                     {({ isActive }) => (
                                                                         <>
                                                                             <div className='flex items-center justify-center px-[15px] '>
@@ -205,7 +205,7 @@ function SidebarMenu(props) {
                                                                     <DisclosurePanel className="relative">
                                                                         {elem.menu?.length > 0 && elem.menu.map((element, elementIndex) => (
                                                                             <div key={element.id} className={`${elementIndex !== elem.menu?.length - 1 && 'pb-[10px]'} ${elementIndex === 0 && 'pt-[10px]'} pl-[43px]`}>
-                                                                                <NavLink key={element.id} end to={element.href} onClick={props.closeSidebarMobileHandler} className="flex items-center relative">
+                                                                                <NavLink to={element.href} end onClick={props.closeSidebarMobileHandler} className="flex items-center relative">
                                                                                     {({ isActive }) => (
                                                                                         <>
                                                                                             <div className='flex items-center justify-center px-[15px] '>

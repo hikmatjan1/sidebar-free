@@ -7,7 +7,7 @@ import Exit from './Exit';
 import Logo from './Logo';
 
 function SidebarDesktop(props) {
-    const { user, openSidebarHandler, sidebarOpen, sidebarOptions, darkMode } = props;
+    const { openSidebarHandler, sidebarOpen, sidebarOptions, darkMode } = props;
     const { bgColor = "#012C6E", bgImage, sectionItem, info, logoInfo } = sidebarOptions;
     const { enabled, sidebarColor, sidebarImage } = useColor();
 
@@ -39,7 +39,6 @@ function SidebarDesktop(props) {
                             <div>
                                 {/* sidebar menu */}
                                 <SidebarMenu
-                                    user={user}
                                     sections={props.sections}
                                     closeSidebarMobileHandler={() => { }}
                                     sectionItem={sectionItem}

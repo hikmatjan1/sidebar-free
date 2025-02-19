@@ -7,9 +7,9 @@ import Exit from './Exit';
 import Logo from './Logo';
 
 function SidebarDesktop(props) {
-    const { openSidebarHandler, sidebarOpen, sidebarOptions, darkMode } = props;
+    const { sidebarOptions, darkMode } = props;
     const { bgColor = "#012C6E", bgImage, sectionItem, info, logoInfo } = sidebarOptions;
-    const { enabled, sidebarColor, sidebarImage } = useColor();
+    const { enabled, sidebarColor, sidebarImage, sidebarOpen, openSidebarHandler } = useColor();
 
     return (
         <div className={`hidden md:fixed md:inset-y-0 md:flex ${sidebarOpen ? 'md:w-3' : 'md:w-80'} md:flex-col transition-all overflow-hidden h-[100vh] z-20`}>

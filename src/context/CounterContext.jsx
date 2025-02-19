@@ -10,6 +10,7 @@ export const SidebarProvider = ({ children }) => {
     const [navbarColor, setNavbarColor] = useState(null);
     const [sidebarImage, setSidebarImage] = useState(null);
     const [enabled, setEnabled] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     // ✅ Retrieving data from localStorage via `useEffect`
     useEffect(() => {
@@ -67,8 +68,18 @@ export const SidebarProvider = ({ children }) => {
         setSidebarImage(JSON.parse(newValue));
     };
 
+    // open sidebar (desktop)
+    const openSidebarHandler = () => {
+        setSidebarOpen(true);
+    };
+
+    // close sidebar (desktop)
+    const closeSidebarHandler = () => {
+        setSidebarOpen(false);
+    };
+
     return (
-        <Context.Provider value={{ sidebarColor, menuColor, navbarColor, sidebarImage, deleteColor, enabled, onSwitchHandler, setColorSidebarHandler, setColorMenuHandler, setColorNavbarHandler, setSidebarImageHandler }}>
+        <Context.Provider value={{ sidebarColor, menuColor, navbarColor, sidebarImage, deleteColor, enabled, onSwitchHandler, setColorSidebarHandler, setColorMenuHandler, setColorNavbarHandler, setSidebarImageHandler, openSidebarHandler, closeSidebarHandler, sidebarOpen }}>
             {children}
         </Context.Provider>
     );

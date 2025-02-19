@@ -10,20 +10,9 @@ import { useColor } from '../../context/CounterContext';
 const SidebarLayouts = (props) => {
     const { user, children, sidebarOptions, navbarOptions, darkMode } = props;
     const { bgColor = "#012C6E", logoInfo } = sidebarOptions;
-    const { enabled } = useColor();
-    const [sidebarOpen, setSidebarOpen] = useState(false);
     const [sidebarMobileOpen, setSidebarMobileOpen] = useState(false);
     const [openDrawerModal, setOpenDrawerModal] = useState(false);
-
-    // open sidebar (desktop)
-    const openSidebarHandler = useCallback(() => {
-        setSidebarOpen(true);
-    }, [sidebarOpen]);
-
-    // close sidebar (desktop)
-    const closeSidebarHandler = useCallback(() => {
-        setSidebarOpen(false);
-    }, [sidebarOpen]);
+    const { enabled, sidebarOpen, closeSidebarHandler } = useColor();
 
     // open sidebar (mobile)
     const openSidebarMobileHandler = useCallback(() => {
@@ -50,8 +39,6 @@ const SidebarLayouts = (props) => {
             {/* for desktop */}
             <SidebarDesktop
                 darkMode={darkMode}
-                openSidebarHandler={openSidebarHandler}
-                sidebarOpen={sidebarOpen}
                 sections={props.sections}
                 sidebarOptions={sidebarOptions}
             />
@@ -76,7 +63,6 @@ const SidebarLayouts = (props) => {
                     darkMode={darkMode}
                     sidebarOptions={sidebarOptions}
                     navbarOptions={navbarOptions}
-                    sidebarOpen={sidebarOpen}
                     openSidebarMobileHandler={openSidebarMobileHandler}
                     openDrawerModalHandler={openDrawerModalHandler}
                 />

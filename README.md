@@ -6,29 +6,33 @@ Click here to view. [Sidebar Preview](https://sidebar-modern-free.netlify.app/)
 
 A fully customizable and responsive sidebar component for React applications, built with TailwindCSS and Headless UI. Easily integrate dynamic navigation menus, dark mode, and various styling options. Designed for dashboards, admin panels, and modern web applications, this component provides a smooth user experience with minimal setup. Supports multiple layouts, collapsible sections, and seamless animations. Works out-of-the-box with TailwindCSS configurations and allows deep customization to match your project’s branding. Enhance your React app’s navigation experience with a professional sidebar solution.
 
+| Image 1                                         | Image 2                                         | Image 3                                         | Image 4                                         |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| ![Image 1](https://i.postimg.cc/qB2TZQ6v/1.jpg) | ![Image 2](https://i.postimg.cc/13FWH7j9/2.jpg) | ![Image 3](https://i.postimg.cc/qRWwy8xt/3.jpg) | ![Image 4](https://i.postimg.cc/9fmBBmV3/5.jpg) |
+
 
 ## Features
 
-1.  ✅ Fully responsive sidebar navigation, 
-2.  ✅ Fully customizable – Easily adjust width, height, and animations.
-3.  ✅ Smooth animations – Beautiful transitions when opening and closing.
-4.  ✅ Responsive design – Works perfectly on all devices (mobile & desktop).
-5.  ✅ Dark & Light mode support – Adapts to different themes effortlessly.
-6.  ✅ Two modes – Static or Collapsible (toggle) mode for better UX.
-7.  ✅ Seamless TailwindCSS integration – Customize styles easily.
-8.  ✅ Navigation-ready – Perfect for adding menus and action buttons.
-9.  ✅ Highly Customizable – Easily modify width, height, colors, and animations.
-10. ✅ The navbar section is also included.
-11. ✅ Collapsible Mode – Sidebar toggles on/off with a button.
-12. ✅ Static Mode – Always visible, ideal for dashboards.
-13. ✅ Customizable styles via props
-14. ✅ Supports sections, nested menus, and icons
-15. ✅ Easy integration with Tailwind CSS
-16. ✅ Routes are also built in, you don't have to do it yourself.
+✅ Fully responsive sidebar navigation,  <br>
+✅ Fully customizable – Easily adjust width, height, and animations. <br>
+✅ Smooth animations – Beautiful transitions when opening and closing. <br>
+✅ Responsive design – Works perfectly on all devices (mobile & desktop). <br>
+✅ Dark & Light mode support – Adapts to different themes effortlessly. <br>
+✅ Two modes – Static or Collapsible (toggle) mode for better UX. <br>
+✅ Seamless TailwindCSS integration – Customize styles easily. <br>
+✅ Navigation-ready – Perfect for adding menus and action buttons. <br>
+✅ Highly Customizable – Easily modify width, height, colors, and animations. <br>
+✅ The navbar section is also included. <br>
+✅ Collapsible Mode – Sidebar toggles on/off with a button. <br>
+✅ Static Mode – Always visible, ideal for dashboards. <br>
+✅ Customizable styles via props <br>
+✅ Supports sections, nested menus, and icons <br>
+✅ Easy integration with Tailwind CSS <br>
+✅ Routes are also built in, you don't have to do it yourself. <br>
 
 🛠 Technologies Used:
-1. ⚡ React.js – For an interactive and dynamic UI.
-1. 🎨 TailwindCSS or Custom CSS – For modern and efficient styling.
+⚡ React.js – For an interactive and dynamic UI. <br>
+🎨 TailwindCSS or Custom CSS – For modern and efficient styling. <br>
 
 
 ## Installation
@@ -48,7 +52,6 @@ yarn add react-infinity-sidebar
 2. [Important]: The Sidebar component must be wrapped with a SidebarProvider component, otherwise it will not work.
 3. Installing Suspense is optional, if you install it, you can get the Loader from react-infinity-sidebar, it's ready-made.
 4. You can also use the 404 page from react-infinity-sidebar, it's ready-made.
-
 
 ## Usage
 
@@ -254,15 +257,10 @@ export default App;
 | `navbarOptions`  | Object | Navbar settings            |
 
 ## Why Use `react-infinity-sidebar`?
-1. 🚀 Easy to set up
-2. 🎨 Highly customizable
-3. 📱 Works on all devices
-4. 🛠 Minimal setup required
-
-
-## Author
-
-Developed by **Khikmat Turaev**. For inquiries, contact [thravshanovich@gmail.com](mailto:thravshanovich@gmail.com).
+🚀 Easy to set up <br> 
+🎨 Highly customizable <br>
+📱 Works on all devices <br>
+🛠 Minimal setup required <br>
 
 
 ## Keywords
@@ -286,9 +284,47 @@ Run the development server:
 npm run dev
 ```
 
+## 📌 Changelog
+
+### 🏷 v1.0.0 - 2025-02-13
+- 🎉 **Initial version!** The Sidebar component has been created.
+
+### 🆕 (v1.0.1 - v1.0.9) - 2025-02-17
+- 🛠 **Bug** – There were some errors between these versions, and corrections are being made.
+
+### 🆕 (v1.0.10) - 2025-02-18
+- 🛠 **Bug Fix** – The errors have been completely eliminated.
+- 🔹 **Theme Config** – Added the ability to choose colors for the `sidebar`, `menu`, and `navbar`.
+- 🔹 **Dark Mode Support** – Sidebar is now compatible with `dark mode`.
+- 🔹 **Routes** – Fully inclusive of directions `Routes, Route`.
+  
+### 🆕 (v1.0.11) - 2025-02-19
+- 🔹 **Add Font** – Verdana, Geneva, Tahoma, sans-serif fonts have been added.
+
+### 🆕 (v1.0.12) - 2025-02-19
+- 🛠 **Bug Fix** – Fixed bugs in saving to Store.
+
+### 🆕 (v1.0.13) - 2025-02-19
+- 🔹 **Voice Control** – Added voice control of Sidebar. There are now parts for closing (closesidebar) or opening (opensidebar) the sidebar and darkmode (dark, light). When saying it, just say the words in brackets. Important: Only for desktop for now
+- 🛠 **Bug Fix** – Fixed some UI issues in responsive mode.
+
+
+## 💡 Feedback
+Your feedback is important to us! If you find a bug or have something new to add, please let us know:
+
+- Leave a new message in the **Issues** section.
+
+👉 [GitHub Issues](https://github.com/hikmatjan1/sidebar-free/issues)  
+
+
 ## License
 
 React Select Custom Component is open-source and available under the MIT License.
+
+
+## Author
+
+Developed by **Khikmat Turaev**. For inquiries, contact [thravshanovich@gmail.com](mailto:thravshanovich@gmail.com).
 
 
 ## Fixes

@@ -309,9 +309,12 @@ npm run dev
   
 ### 🆕 (v1.0.14) - 2025-03-01
 - 🛠 **Bug Fix** – Voice control bug fixed.
-- 
+  
 ### 🆕 (v1.0.15) - 2025-03-01
 - 🛠 **Bug Fix** – Text related to voice control has been removed from the right panel.
+
+### 🆕 (v1.0.16) - 2025-03-01
+- 🛠 **Add versions** – The latest versions of react, react-dom, react-router-dom are installed.
 
 
 ## 💡 Feedback

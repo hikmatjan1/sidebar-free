@@ -306,9 +306,12 @@ npm run dev
 
 ### 🆕 (v1.0.13) - 2025-02-19
 - 🛠 **Bug** – There is an error in Voice Control.
-- 
+  
 ### 🆕 (v1.0.14) - 2025-03-01
 - 🛠 **Bug Fix** – Voice control bug fixed.
+- 
+### 🆕 (v1.0.15) - 2025-03-01
+- 🛠 **Bug Fix** – Text related to voice control has been removed from the right panel.
 
 
 ## 💡 Feedback

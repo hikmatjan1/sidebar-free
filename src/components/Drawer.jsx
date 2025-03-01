@@ -45,7 +45,7 @@ function Drawer(props) {
 
                     <Theme />
 
-                    <hr />
+                    {/* <hr />
 
                     <div className='py-2'>
                         <h3 className='px-4 '>Voice Control - Properties</h3>
@@ -55,7 +55,7 @@ function Drawer(props) {
                             <li className='px-4 bg-[#F5F7FA] py-1'><strong className='text-green-700'>Dark</strong> - Enable dark mode.</li>
                             <li className='px-4 py-1'><strong className='text-green-700'>Light</strong> - Turns off dark mode.</li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

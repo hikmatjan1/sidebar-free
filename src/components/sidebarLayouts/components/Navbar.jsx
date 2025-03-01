@@ -3,7 +3,7 @@ import ProfileDropdown from './ProfileDropdown';
 import { CgMenu } from 'react-icons/cg';
 import ColorPalette from '../../ColorPalette';
 import { useColor } from '../../../context/CounterContext';
-import Speech from '../../Speech';
+// import Speech from '../../Speech';
 
 function Navbar(props) {
     const { user, sidebarOptions, navbarOptions, openDrawerModalHandler, darkMode } = props;
@@ -32,9 +32,9 @@ function Navbar(props) {
 
                     {visible ? (
                         <div className="flex items-center gap-3 justify-between">
-                            <Speech />
+                            {/* <Speech /> */}
 
-                            <div className={`w-[1px] h-[20px] ${enabled ? 'bg-white/20' : 'bg-gray-200'}`}></div>
+                            {/* <div className={`w-[1px] h-[20px] ${enabled ? 'bg-white/20' : 'bg-gray-200'}`}></div> */}
 
                             {/* Theme Config */}
                             <ColorPalette openDrawerModalHandler={openDrawerModalHandler} />

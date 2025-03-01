@@ -305,8 +305,10 @@ npm run dev
 - 🛠 **Bug Fix** – Fixed bugs in saving to Store.
 
 ### 🆕 (v1.0.13) - 2025-02-19
-- 🔹 **Voice Control** – Added voice control of Sidebar. There are now parts for closing (closesidebar) or opening (opensidebar) the sidebar and darkmode (dark, light). When saying it, just say the words in brackets. Important: Only for desktop for now
-- 🛠 **Bug Fix** – Fixed some UI issues in responsive mode.
+- 🛠 **Bug** – There is an error in Voice Control.
+- 
+### 🆕 (v1.0.14) - 2025-03-01
+- 🛠 **Bug Fix** – Voice control bug fixed.
 
 
 ## 💡 Feedback
@@ -325,8 +327,3 @@ React Select Custom Component is open-source and available under the MIT License
 ## Author
 
 Developed by **Khikmat Turaev**. For inquiries, contact [thravshanovich@gmail.com](mailto:thravshanovich@gmail.com).
-
-
-## Fixes
-1. There is an error when working with versions 1.0.0 to 1.0.9, I am working on this bug. I apologize for the inconvenience. 16.02.2025
-2. You can use it freely starting from version 1.0.10. 18.02.2025
